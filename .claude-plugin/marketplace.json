@@ -1,0 +1,16 @@
+{
+  "name": "claude-usage-tips",
+  "owner": {
+    "name": "fyodoriv"
+  },
+  "plugins": [
+    {
+      "name": "usage-tips",
+      "source": "./",
+      "description": "One short tip per turn on using AI better, with adoption metrics."
+    }
+  ],
+  "metadata": {
+    "description": "Short, measured tips for using Claude Code better."
+  }
+}

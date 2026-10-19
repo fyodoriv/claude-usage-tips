@@ -1,0 +1,9 @@
+{
+  "name": "usage-tips",
+  "version": "0.1.0",
+  "description": "Ends each Claude Code turn with one very short, context-matched tip on using AI better, and measures which tips you adopt.",
+  "author": { "name": "fyodoriv" },
+  "homepage": "https://github.com/fyodoriv/claude-usage-tips",
+  "license": "MIT",
+  "hooks": "./hooks/hooks.json"
+}
