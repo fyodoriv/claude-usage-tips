@@ -31,16 +31,26 @@ Tips live in [`hooks/tips.tsv`](hooks/tips.tsv): id, trigger, adopt regex, text.
 | `correction` | starts with "no", "wrong", "still broken", … |
 | `error` | reports a failure but holds no error text |
 | `long` | belongs to a transcript over 400 lines |
-| `any` | always (least-shown first) |
+| `any` | always |
 
-It never repeats the previous tip and never shows a tip you already adopted.
+**Never a repeat.** A tip already shown never comes back while any tip that
+fits is still unshown. The history is the whole log, across sessions. Once
+every fitting tip was shown, the one shown longest ago comes next
+(oldest-first rotation). Among unshown tips, a matching specific trigger wins,
+then file order. A tip you already adopted never shows again, and the same tip
+never shows twice in a row.
+
+## In the status line
+
+Each `shown` row also holds the tip text, so a status line can show the
+current tip. agentbrew's `agent-perf.mjs statusline` prints it on a second line.
 
 ## Measure and improve
 
 Each shown tip appends a row to `~/.cache/agentbrew/usage-tips/log.jsonl`
 (`USAGE_TIPS_DIR` moves it): time, session id, tip id, event. Never prompt text.
 When a later prompt in the session matches a shown tip's adopt regex (for
-example `^/clear` after the clear tip), it logs `adopted`.
+example `^/compact` after the compact tip), it logs `adopted`.
 
 ```bash
 bash ~/.claude/plugins/*/usage-tips/scripts/report.sh   # or scripts/report.sh in a clone
@@ -48,7 +58,7 @@ bash ~/.claude/plugins/*/usage-tips/scripts/report.sh   # or scripts/report.sh i
 
 prints shown, adopted, and adoption rate per tip. Adoption is a proxy, not
 proof the tip caused it. PRs with better tips, or with your report numbers,
-are welcome: add a row to `hooks/tips.tsv` and a case to `tests/usage-tip.test.sh`.
+are welcome (see [CONTRIBUTING.md](CONTRIBUTING.md)): add a row to `hooks/tips.tsv` and a case to `tests/usage-tip.test.sh`.
 
 ## Test
 

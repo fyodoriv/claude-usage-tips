@@ -1,0 +1,3 @@
+# Agent dependencies for claude-usage-tips. Preview: `agentbrew sync --dry-run`. Apply: `agentbrew sync`.
+skills:
+  - report-upstream   # offers safe upstream issue reports (CONTRIBUTING.md)
