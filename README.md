@@ -50,7 +50,7 @@ current tip. agentbrew's `agent-perf.mjs statusline` prints it on a second line.
 Each shown tip appends a row to `~/.cache/agentbrew/usage-tips/log.jsonl`
 (`USAGE_TIPS_DIR` moves it): time, session id, tip id, event. Never prompt text.
 When a later prompt in the session matches a shown tip's adopt regex (for
-example `^/clear` after the clear tip), it logs `adopted`.
+example `^/compact` after the compact tip), it logs `adopted`.
 
 ```bash
 bash ~/.claude/plugins/*/usage-tips/scripts/report.sh   # or scripts/report.sh in a clone
